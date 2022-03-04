@@ -36,6 +36,9 @@ export class AppComponent {
     this.http.post<any>('http://localhost:8080/app/api/patient/transferPatient', { fullUrl: "http://hapi.fhir.org/baseR4/Patient/"+this.value }, {responseType: 'text'}).subscribe(data => {
       alert(JSON.stringify(data));
       this.value = "";
+      this.http.get<any>('http://localhost:8080/app/api/patient/getAllPatients').subscribe(data => {
+        this.dataSource = new MatTableDataSource(data);
+      })
     })
   }
 
