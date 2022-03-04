@@ -1,0 +1,9 @@
+com\patienttest\demotest\dto\PatientDto.class
+com\patienttest\demotest\dto\TransferRequest.class
+com\patienttest\demotest\DemoApplication.class
+com\patienttest\demotest\resource\DemoResource.class
+com\patienttest\demotest\service\PatientService.class
+com\patienttest\demotest\CORSFilter.class
+com\patienttest\demotest\DemoServlet.class
+com\patienttest\demotest\repository\PatientRepository.class
+com\patienttest\demotest\model\Patient.class

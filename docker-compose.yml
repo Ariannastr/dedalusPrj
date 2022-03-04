@@ -1,0 +1,30 @@
+version: '2'
+services:
+    postgres:
+        build: ./db
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=root
+            - POSTGRES_DB=patient
+        volumes:
+            - ./db-data/:/var/lib/postgresql/data/
+    wildfly:
+        build: .
+        ports:
+            - "8080:8080"
+            - "9990:9990"
+        environment:
+            - DB_HOST=postgres
+            - DB_NAME=patient
+            - DB_USER=postgres
+            - DB_PASS=root
+        depends_on:
+            - postgres
+    frontend:
+        build: ./angular_project/dedalus_prg
+        ports: 
+            - "80:80"
+        depends_on:
+            - wildfly
